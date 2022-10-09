@@ -1,0 +1,17 @@
+import coordinates.ChildLocation;
+import coordinates.Locations;
+
+public class Main {
+    public static void main(String[] args) {
+        Locations location = new Locations(150, 100);
+        Locations location2 = new Locations(50, 150);
+
+        System.out.println(location.Xdistance(location2));
+
+        ChildLocation child = new ChildLocation();
+        System.out.println(child);
+
+        Locations l3 = location.increase(location2);
+        System.out.println(l3);
+    }
+}
