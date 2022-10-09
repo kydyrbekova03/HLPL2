@@ -1,0 +1,79 @@
+package coordinates;
+
+import java.util.Objects;
+
+public class Locations {
+    private double x;
+    private double y;
+
+    static double min = -200;
+    static double max = 200;
+
+
+    public Locations(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public Locations() {
+        if(x<200 || x>-200 || y<200 || y>-200){
+            this.x=x;
+            this.y=y;
+        }
+
+        else{
+            System.out.println("Error");
+        }
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Locations{" + "x=" + x + ", y=" + y + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        //if (o == null || getClass() != o.getClass()) return false;
+        Locations locations = (Locations) o;
+        return Double.compare(locations.x, x) == 0 && Double.compare(locations.y, y) == 0;
+    }
+
+    public double Xdistance(Locations a){
+        double dist = this.getX()-a.getX();
+        if(dist<0)
+            return dist*-1;
+        return dist;
+
+    }
+
+    public double Ydistance(Locations a){
+        double dist = this.getX()-a.getX();
+        if(dist<0)
+            return dist*-1;
+        return dist;
+    }
+
+    public Locations increase(Locations a){
+        return new Locations(this.getX()*a.getX(), this.getY()*a.getY());
+    }
+
+
+}
